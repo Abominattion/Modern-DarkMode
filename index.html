@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern DarkMode</title>
+    <meta property="og:image" content="images/share.jpg" />
+    <meta name="twitter:image" content="images/share.jpg" />
+    <meta itemprop="image" content="images/share.jpg" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="images/icons/favicon.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/208bc104ce.js" crossorigin="anonymous"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/45226/material-photo-gallery.min.js"></script>
+</head>
+
+<body>
+
+    <!--HEADER-->
+    <header>
+        <div class="logo">
+            <a href="#">
+                <h1><span><i class="fas fa-moon"></i></span> Modern DarkMode</h1>
+            </a>
+        </div>
+
+        <div class="header-links">
+            <ul>
+                <li><a class="fas fa-moon" href="#" id="darkmod" onclick="changeIcon(this)"></a></li>
+                <li><a href="#"><i class="fas fa-th-large"></i></a></li>
+                <li><a href="#"><i class="fas fa-search"></i></a></li>
+                <li><a href="#"><i class="fas fa-user"></i></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!--NAVBAR-->
+    <nav>
+        <div class="nav-button" id="icon">
+            <button id="btn-mobile"><i class="fas fa-arrow-right"></i></button>
+        </div>
+
+        <ul id="nav-link">
+            <li><span><i class="fas fa-home"></i></span> <a href="#">Home</a></li>
+            <li><span><i class="fas fa-info-circle"></i></span> <a href="#">About</a></li>
+            <li><span><i class="fas fa-moon"></i></span> <a href="#">DarkMode</a></li>
+            <li><span><i class="fas fa-user"></i></span> <a href="#">Sing In</a></li>
+        </ul>
+    </nav>
+
+    <div class="container content">
+
+        <div class="content-header">
+            <h1>Developed by Adonay Douglas</h1>
+            <p>Esse exemplo de darkmode utiliza <b>localStorage</b> do navegador, ou seja mesmo dando f5, ou trocando de pagina
+                o darkmode continua ativo. <br><br>
+
+                A meta tag 'theme-color' nada mais e que a cor da barrinha que aparece na parte de cima dos dispositivos
+                mobile.<br><br>
+
+                As cores da meta tag 'theme-color' podem ser alteradas por qualquer outra cor em <b>darkmode.js</b>
+                Sendo: clearcolor (A cor do modo Claro), darkcolor (A cor do modo Dark).
+
+                Enquanto no css a classe <b>:root</b> e responsavel pelas cores, fontes etc... do modo claro e a classe
+                <b>.darkmode </b> do modo escuro, como pode ver no arquivo <b>style.css</b> desse projeto.</p>
+        </div>
+        <div class="m-p-g ">
+            <div class="m-p-g__thumbs" data-google-image-layout data-max-height="350">
+                <img src="images/bg/bg-1.jpeg" data-full="images/bg/bg-1.jpeg" class="m-p-g__thumbs-img" />
+                <img src="images/bg/bg-2.jpeg" data-full="images/bg/bg-2.jpeg" class="m-p-g__thumbs-img" />
+                <img src="images/bg/bg-3.jpeg" data-full="images/bg/bg-3.jpeg" class="m-p-g__thumbs-img" />
+                <img src="images/bg/bg-4.jpeg" data-full="images/bg/bg-4.jpeg" class="m-p-g__thumbs-img" />
+                <img src="images/bg/bg-5.jpeg" data-full="images/bg/bg-5.jpeg" class="m-p-g__thumbs-img" />
+                <img src="images/bg/bg-6.jpeg" data-full="images/bg/bg-6.jpeg" class="m-p-g__thumbs-img" />
+                <img src="images/bg/bg-7.jpeg" data-full="images/bg/bg-7.jpeg" class="m-p-g__thumbs-img" />
+                <img src="images/bg/bg-8.jpeg" data-full="images/bg/bg-8.jpeg" class="m-p-g__thumbs-img" />
+                <img src="images/bg/bg-9.jpeg" data-full="images/bg/bg-9.jpeg" class="m-p-g__thumbs-img" />
+                <img src="images/bg/bg-10.jpeg" data-full="images/bg/bg-10.jpeg" class="m-p-g__thumbs-img" />
+            </div>
+
+            <div class="m-p-g__fullscreen"></div>
+        </div>
+    </div>
+
+    <footer>
+            <div class="copyright">
+                <p><small>
+                        Copyright &copy;<script>
+                            document.write(new Date().getFullYear());
+                        </script> Todos os direitos reservados <strong><a href="#" target="_blank"><span><i class="fas fa-moon"></i></span> Modern DarkMode</a></strong> <i class="icon-heart text-danger"
+                            aria-hidden="true"></i> | Desenvolvido por <a href="https://www.facebook.com/adonay.douglas.7/"
+                            target="_blank"><strong>Adonay
+                                Douglas</strong></a>
+                    </small></p>
+            </div>
+    </footer>
+
+    <script>
+        function changeIcon(e) {
+            var tipo = e.parentNode.querySelector("#darkmod");
+
+            tipo.type = tipo.type; //aplica o tipo que ficou no primeiro campo
+
+
+            var botao = document.querySelector("#darkmod"); //obter o botão
+
+            if (botao.classList.contains("fa-moon")) { //se tem olho aberto
+                botao.classList.remove("fa-moon"); //remove classe olho aberto
+                botao.classList.add("fa-sun"); //coloca classe olho fechado
+            } else { //senão
+                botao.classList.remove("fa-sun"); //remove classe olho fechado
+                botao.classList.add("fa-moon"); //coloca classe olho aberto
+            }
+
+        }
+    </script>
+
+    <script>
+        var elem = document.querySelector('.m-p-g');
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var gallery = new MaterialPhotoGallery(elem);
+        });
+    </script>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
